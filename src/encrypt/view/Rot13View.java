@@ -1,4 +1,4 @@
-package view;
+package encrypt.view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -10,9 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import model.MenuActions;
+import encrypt.model.MenuActions;
 
-public class RotByWord extends MenuActions{
+public class Rot13View extends MenuActions{
 	
 JFrame mainFrame = new JFrame();
 	
@@ -23,14 +23,8 @@ JFrame mainFrame = new JFrame();
 	JScrollPane scrollPrompt = new JScrollPane(promptPanel);
 	
 	JPanel editPane = new JPanel();
-	JLabel sentLbl = new JLabel("Enter a sentence to encrypt");
-	JTextArea sentText = new JTextArea("", 1, 35);
-	JLabel keyLbl = new JLabel("Enter a keyword to rotate it by");
-	JTextArea keyText = new JTextArea("", 1, 10);
-	JLabel numLbl1 = new JLabel("Optional: enter a number to rotate it by");
-	JTextArea numText1 = new JTextArea("", 1, 10);
-	JLabel numLbl2 = new JLabel("Optional: enter a number to rotate it by");
-	JTextArea numText2 = new JTextArea("", 1, 10);
+	JLabel charLbl = new JLabel("Enter a sentence to rotate");
+	JTextArea charText = new JTextArea("", 6, 35);
 	
 	JPanel button = new JPanel();
 	public JButton encrypt = new JButton("Encrypt");
@@ -38,7 +32,7 @@ JFrame mainFrame = new JFrame();
 	public JButton mainMenu = new JButton("Main Menu");
 	public JButton exit = new JButton("Exit");
 	
-	public RotByWord() {
+	public Rot13View() {
 		
 		headerPanel.add(header);
 		header.setForeground(Color.CYAN);
@@ -47,40 +41,21 @@ JFrame mainFrame = new JFrame();
 		GridLayout gridLay = new GridLayout(1,1);
 		promptPanel.setBackground(Color.BLACK);
 		promptPanel.add(prompt);
-		promptPanel.setLayout(gridLay);
+		promptPanel.setLayout(gridLay);;
 		prompt.setLineWrap(true);
 		prompt.setForeground(Color.CYAN);
 		prompt.setBackground(Color.DARK_GRAY);
 		scrollPrompt.setBackground(Color.BLACK);
 		
-		GridLayout editGrd = new GridLayout(4, 2);
-		editPane.setLayout(editGrd);
 		editPane.setBackground(Color.BLACK);
 		editPane.setForeground(Color.CYAN);
-		sentLbl.setForeground(Color.CYAN);
-		sentLbl.setBackground(Color.BLACK);
-		sentText.setBackground(Color.DARK_GRAY);
-		sentText.setForeground(Color.CYAN);
-		keyLbl.setForeground(Color.CYAN);
-		keyLbl.setBackground(Color.BLACK);
-		numLbl1.setForeground(Color.CYAN);
-		numLbl1.setBackground(Color.BLACK);
-		numText1.setForeground(Color.CYAN);
-		numText1.setBackground(Color.DARK_GRAY);
-		numLbl2.setForeground(Color.CYAN);
-		numLbl2.setBackground(Color.BLACK);
-		sentText.setLineWrap(true);
-		keyText.setLineWrap(true);
-		numText1.setLineWrap(true);
-		numText2.setLineWrap(true);
-		editPane.add(sentLbl);
-		editPane.add(sentText);
-		editPane.add(keyLbl);
-		editPane.add(keyText);
-		editPane.add(numLbl1);
-		editPane.add(numText1);
-		editPane.add(numLbl2);
-		editPane.add(numText2);
+		charLbl.setForeground(Color.CYAN);
+		charLbl.setBackground(Color.BLACK);
+		charText.setBackground(Color.DARK_GRAY);
+		charText.setForeground(Color.CYAN);
+		charText.setLineWrap(true);
+		editPane.add(charLbl);
+		editPane.add(charText);
 		
 		button.setBackground(Color.BLACK);
 		button.setBackground(Color.BLACK);
@@ -101,7 +76,7 @@ JFrame mainFrame = new JFrame();
 		mainFrame.add(editPane);
 		mainFrame.add(button);
 		mainFrame.setVisible(false);
-		mainFrame.setSize(860, 800);
+		mainFrame.setSize(800, 800);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setLocationRelativeTo(null);
 		// Drop down menu
@@ -113,9 +88,9 @@ JFrame mainFrame = new JFrame();
 				
 	}
 	
-	public void loadRotWordView() {
-		prompt.setColumns(75);
-		prompt.setRows(300);
+	public void loadRot13View() {
+		prompt.setColumns(60);
+		prompt.setRows(500);
 		String promptText = "Enter some text here or \n"
 				+ "choose the menu option to load \n"
 				+ "a file of your own.";
@@ -123,39 +98,15 @@ JFrame mainFrame = new JFrame();
 		mainFrame.setVisible(true);
 	}
 	
-	public void closeRotWordView() {
+	public void closeRot13View() {
 		mainFrame.setVisible(false);
 	}
 	
-	public void setSentTextBlank() {
-		sentText.setText("");
+	public void setCharTextBlank() {
+		charText.setText("");
 	}
 	
-	public String getSentText() {
-		return sentText.getText();
-	}
-	
-	public void setKeyTextBlank() {
-		keyText.setText("");
-	}
-	
-	public String getKeyText() {
-		return keyText.getText();
-	}
-
-	public void setNum1TextBlank() {
-		numText1.setText("");
-	}
-	
-	public String getNum1Text() {
-		return numText1.getText();
-	}
-	
-	public void setNum2TextBlank() {
-		numText2.setText("");
-	}
-	
-	public String getNum2Text() {
-		return numText2.getText();
+	public String getCharText() {
+		return charText.getText();
 	}
 }

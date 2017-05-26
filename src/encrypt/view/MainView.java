@@ -1,11 +1,11 @@
-package view;
+package encrypt.view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.*;
 
-import model.MenuActions;
+import encrypt.model.MenuActions;
 
 public class MainView extends MenuActions{
 	

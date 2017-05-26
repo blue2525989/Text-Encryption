@@ -1,4 +1,4 @@
-package model;
+package encrypt.model;
 
 import java.awt.event.ActionEvent;
 import java.io.File;

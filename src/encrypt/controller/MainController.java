@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import model.Encrypt;
-import view.MainView;
-import view.Rot13View;
-import view.RotAnyView;
-import view.RotByWord;
+import encrypt.model.Encrypt;
+import encrypt.view.MainView;
+import encrypt.view.Rot13View;
+import encrypt.view.RotAnyView;
+import encrypt.view.RotByWord;
 
 public class MainController extends Encrypt implements ActionListener {
 	

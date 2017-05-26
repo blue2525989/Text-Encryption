@@ -1,4 +1,4 @@
-package model;
+package encrypt.model;
 
 public class Encrypt {
 	
