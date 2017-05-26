@@ -90,7 +90,7 @@ JFrame mainFrame = new JFrame();
 	
 	public void loadRot13View() {
 		prompt.setColumns(60);
-		prompt.setRows(500);
+		prompt.setRows(20);
 		String promptText = "Enter some text here or \n"
 				+ "choose the menu option to load \n"
 				+ "a file of your own.";

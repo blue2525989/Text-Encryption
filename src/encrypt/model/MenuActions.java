@@ -88,6 +88,8 @@ public class MenuActions {
 	class exitAction extends AbstractAction {
 	    
 	    public exitAction() {
+	    	super("Exit");
+	        putValue(MNEMONIC_KEY, new Integer('X'));
 	    }
 	    
 	    public void actionPerformed(ActionEvent e) {

@@ -115,7 +115,7 @@ JFrame mainFrame = new JFrame();
 	
 	public void loadRotWordView() {
 		prompt.setColumns(75);
-		prompt.setRows(300);
+		prompt.setRows(20);
 		String promptText = "Enter some text here or \n"
 				+ "choose the menu option to load \n"
 				+ "a file of your own.";
