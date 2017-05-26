@@ -23,8 +23,8 @@ JFrame mainFrame = new JFrame();
 	JScrollPane scrollPrompt = new JScrollPane(promptPanel);
 	
 	JPanel editPane = new JPanel();
-	JLabel charLbl = new JLabel("Enter a character to rotate");
-	JTextArea charText = new JTextArea("", 1, 10);
+	JLabel charLbl = new JLabel("Enter a sentence to rotate");
+	JTextArea charText = new JTextArea("", 6, 35);
 	
 	JPanel button = new JPanel();
 	public JButton encrypt = new JButton("Encrypt");
@@ -38,9 +38,11 @@ JFrame mainFrame = new JFrame();
 		header.setForeground(Color.CYAN);
 		headerPanel.setBackground(Color.BLACK);
 		
+		GridLayout gridLay = new GridLayout(1,1);
 		promptPanel.setBackground(Color.BLACK);
 		promptPanel.add(prompt);
-		prompt.setLineWrap(false);
+		promptPanel.setLayout(gridLay);;
+		prompt.setLineWrap(true);
 		prompt.setForeground(Color.CYAN);
 		prompt.setBackground(Color.DARK_GRAY);
 		scrollPrompt.setBackground(Color.BLACK);
@@ -51,6 +53,7 @@ JFrame mainFrame = new JFrame();
 		charLbl.setBackground(Color.BLACK);
 		charText.setBackground(Color.DARK_GRAY);
 		charText.setForeground(Color.CYAN);
+		charText.setLineWrap(true);
 		editPane.add(charLbl);
 		editPane.add(charText);
 		

@@ -354,5 +354,58 @@ public class Encrypt {
 		}
 		return s;
 	}
+	
+
+	/**
+	 * rotateByWord
+	 * takes a String and rotates it by another String
+	 * @param s String to be encrypted
+	 * @param key String to use as key
+	 * @param xtra is an extra parameter to add another layer
+	 * @return encrypted String
+	 */
+	// extra extra layer
+	public static String rotateByWord(String s, String key, int xtra, int xtra2) {
+		char[] keys = key.toCharArray();
+		char[] chars = s.toCharArray();
+		s = "";
+		int count = 0;
+		for (int i = 0; i < chars.length; i++) {
+			count = (count >= keys.length) ? count = 0 : count;
+			char temp = (chars[i] >= 'A' && chars[i] <= 'Z') ?
+					temp = (char) ((((chars[i] - 'A') + ((keys[count]*xtra)%xtra2)) % 26) + 'A') :
+						(temp = (chars[i] >= 'a' && chars[i] <= 'z') ?
+								temp = (char) ((((chars[i] - 'a') + ((keys[count]*xtra)%xtra2)) % 26) + 'a') : chars[i]);
+			s += temp;
+			count++;
+		}
+		return s;
+	}
+	
+	/**
+	 * unrotateByWord
+	 * takes a String and rotates it by another String
+	 * @param s String to be resolved  
+	 * @param key String to use as key
+	 * @param xtra is an extra parameter to add another layer
+	 * @return decrypted String
+	 */
+	// extra extra layer
+	public static String unrotateByWord(String s, String key, int xtra, int xtra2) {
+		char[] keys = key.toCharArray();
+		char[] chars = s.toCharArray();
+		s = "";
+		int count = 0;
+		for (int i = 0; i < chars.length; i++) {
+			count = (count >= keys.length) ? count = 0 : count;
+			char temp = (chars[i] >= 'A' && chars[i] <= 'Z') ?
+					temp = (char) ((((chars[i] - 'Z') - ((keys[count]*xtra)%xtra2)) % 26) + 'Z') :
+						(temp = (chars[i] >= 'a' && chars[i] <= 'z') ?
+								temp = (char) ((((chars[i] - 'z') - ((keys[count]*xtra)%xtra2)) % 26) + 'z') : chars[i]);
+			s += temp;
+			count++;
+		}
+		return s;
+	}
 
 }
