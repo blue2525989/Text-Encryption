@@ -25,7 +25,7 @@ JFrame mainFrame = new JFrame();
 	JPanel editPane = new JPanel();
 	JLabel sentLbl = new JLabel("Enter a sentence to encrypt");
 	JTextArea sentText = new JTextArea("", 1, 35);
-	JLabel keyLbl = new JLabel("Enter a number to rotate it by");
+	JLabel keyLbl = new JLabel("Optional: enter a number to rotate it by");
 	JTextArea keyText = new JTextArea("", 1, 10);
 	
 	JPanel button = new JPanel();
