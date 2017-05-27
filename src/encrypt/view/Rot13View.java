@@ -23,8 +23,10 @@ JFrame mainFrame = new JFrame();
 	JScrollPane scrollPrompt = new JScrollPane(promptPanel);
 	
 	JPanel editPane = new JPanel();
-	JLabel charLbl = new JLabel("Enter a sentence to rotate");
-	JTextArea charText = new JTextArea("", 6, 35);
+	JLabel sentLbl = new JLabel("Enter a sentence to encrypt");
+	JTextArea sentText = new JTextArea("", 1, 35);
+	JLabel keyLbl = new JLabel("Enter a number to rotate it by");
+	JTextArea keyText = new JTextArea("", 1, 10);
 	
 	JPanel button = new JPanel();
 	public JButton encrypt = new JButton("Encrypt");
@@ -47,15 +49,22 @@ JFrame mainFrame = new JFrame();
 		prompt.setBackground(Color.DARK_GRAY);
 		scrollPrompt.setBackground(Color.BLACK);
 		
+		GridLayout editGrid = new GridLayout(2, 2);
+		editPane.setLayout(editGrid);
 		editPane.setBackground(Color.BLACK);
 		editPane.setForeground(Color.CYAN);
-		charLbl.setForeground(Color.CYAN);
-		charLbl.setBackground(Color.BLACK);
-		charText.setBackground(Color.DARK_GRAY);
-		charText.setForeground(Color.CYAN);
-		charText.setLineWrap(true);
-		editPane.add(charLbl);
-		editPane.add(charText);
+		sentLbl.setForeground(Color.CYAN);
+		sentLbl.setBackground(Color.BLACK);
+		sentText.setBackground(Color.DARK_GRAY);
+		sentText.setForeground(Color.CYAN);
+		keyLbl.setForeground(Color.CYAN);
+		keyLbl.setBackground(Color.BLACK);
+		sentText.setLineWrap(true);
+		keyText.setLineWrap(true);
+		editPane.add(sentLbl);
+		editPane.add(sentText);
+		editPane.add(keyLbl);
+		editPane.add(keyText);
 		
 		button.setBackground(Color.BLACK);
 		button.setBackground(Color.BLACK);
@@ -102,11 +111,20 @@ JFrame mainFrame = new JFrame();
 		mainFrame.setVisible(false);
 	}
 	
-	public void setCharTextBlank() {
-		charText.setText("");
+	public void setSentTextBlank() {
+		sentText.setText("");
 	}
 	
-	public String getCharText() {
-		return charText.getText();
+	public String getSentText() {
+		return sentText.getText();
+	}
+	
+
+	public void setKeyTextBlank() {
+		keyText.setText("");
+	}
+	
+	public String getKeyText() {
+		return keyText.getText();
 	}
 }

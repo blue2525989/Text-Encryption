@@ -80,7 +80,8 @@ public class MainController extends Encrypt {
 				
 			// main menu button
 			if (event.getSource() == uiRot13.mainMenu) {
-				uiRot13.setCharTextBlank();
+				uiRot13.setSentTextBlank();
+				uiRot13.setKeyTextBlank();
 				uiRot13.closeRot13View();
 				uiMain.loadMainView();
 			}
@@ -88,10 +89,19 @@ public class MainController extends Encrypt {
 			// encrypt button
 			if (event.getSource() == uiRot13.encrypt) {
 				try {
-					String master = (uiRot13.getCharText().length() > 0) ?
-							(uiRot13.getCharText()) : (uiRot13.getPromptText());
+					String master = (uiRot13.getSentText().length() > 0) ?
+							(uiRot13.getSentText()) : (uiRot13.getPromptText());
 					uiRot13.setPromptBlank();
-					String enc = rot13String(master);
+					String enc = "";
+					if (uiRot13.getKeyText().length() > 0) {
+						String numTempText = uiRot13.getKeyText();
+						int numText = Integer.parseInt(numTempText);
+						enc = rot13String(master, numText);
+					}	
+					else {
+						enc = rot13String(master);
+					}
+					
 					uiRot13.setPrompt(enc);
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
@@ -102,9 +112,16 @@ public class MainController extends Encrypt {
 			if (event.getSource() == uiRot13.decrypt) {
 				try {
 					String master = (uiRot13.getPromptText().length() > 0) ?
-							(uiRot13.getPromptText()) : (uiRot13.getCharText());
-					uiRot13.setPromptBlank();
-					String enc = unRot13String(master);
+							(uiRot13.getPromptText()) : (uiRot13.getSentText());
+					String enc = "";
+					if (uiRot13.getKeyText().length() > 0) {
+						String numTempText = uiRot13.getKeyText();
+						int numText = Integer.parseInt(numTempText);
+						enc = rot13String(master, numText);
+					}	
+					else {
+						enc = rot13String(master);
+					}
 					uiRot13.setPrompt(enc);
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());

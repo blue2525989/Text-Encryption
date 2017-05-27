@@ -11,7 +11,7 @@ public class Encrypt {
 	 * @return the number rotated 13 spaces
 	 */
 	
-	public static int rot13(int n) {
+	private static int rot13(int n) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = (((n - 'A') + 13) % 26) + 'A' :	
 					(n = (n >= 'a' && n <= 'z') ?
@@ -25,7 +25,7 @@ public class Encrypt {
 	 * @return un-rotated character
 	 */
 	
-	public static int unRot13(int n) {
+	private static int unRot13(int n) {
 		return (n >= 'A' && n <= 'Z') ?
 				n = (((n - 'Z') - 13) % 26) + 'Z' : (n = (n >= 'a' && n <= 'z') ? 
 						n = (((n - 'z') - 13) % 26) + 'z' : n);
@@ -71,7 +71,7 @@ public class Encrypt {
 	 * @return the number rotated 13 spaces
 	 */
 	
-	public static int rot13(int n, int xtra) {
+	private static int rot13(int n, int xtra) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = ((((n + xtra) - 'A') + 13) % 26) + 'A' : (n = (n >= 'a' && n <= 'z') ?
 							n = ((((n + xtra) - 'a') + 13) % 26) + 'a' : n);
@@ -85,7 +85,7 @@ public class Encrypt {
 	 * @return un-rotated character
 	 */
 	
-	public static int unRot13(int n, int xtra) {
+	private static int unRot13(int n, int xtra) {
 		return (n >= 'A' && n <= 'Z') ?
 				n = ((((n - xtra) - 'Z') - 13) % 26) + 'Z' : (n = (n >= 'a' && n <= 'z') ? 
 						n = ((((n - xtra) - 'z') - 13) % 26) + 'z' : n);
@@ -133,7 +133,7 @@ public class Encrypt {
 	 * @return rotated character
 	 */
 	
-	public static int rotAny(int n, int offset) {
+	private static int rotAny(int n, int offset) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = (((n - 'A') + offset) % 26) + 'A' :	(n = (n >= 'a' && n <= 'z') ?
 							n = (((n - 'a') + offset) % 26) + 'a' : n);
@@ -147,7 +147,7 @@ public class Encrypt {
 	 * @return un-rotated character
 	 */
 	
-	public static int unRotAny(int n, int offset) {
+	private static int unRotAny(int n, int offset) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = (((n - 'Z') - offset) % 26) + 'Z' :	(n = (n >= 'a' && n <= 'z') ?
 							n = (((n - 'z') - offset) % 26) + 'z' : n);
@@ -196,7 +196,7 @@ public class Encrypt {
 	 * @return rotated character
 	 */
 	
-	public static int rotAny(int n, int offset, int xtra) {
+	private static int rotAny(int n, int offset, int xtra) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = ((((n + xtra) - 'A') + offset) % 26) + 'A' : (n = (n >= 'a' && n <= 'z') ?
 							n = ((((n + xtra) - 'a') + offset) % 26) + 'a' : n);
@@ -211,7 +211,7 @@ public class Encrypt {
 	 * @return un-rotated character
 	 */
 	
-	public static int unRotAny(int n, int offset, int xtra) {
+	private static int unRotAny(int n, int offset, int xtra) {
 		return (n >= 'A' && n <= 'Z') ? 
 				n = ((((n - xtra) - 'Z') - offset) % 26) + 'Z' : (n = (n >= 'a' && n <= 'z') ?
 							n = ((((n - xtra) - 'z') - offset) % 26) + 'z' : n);
